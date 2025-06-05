@@ -24,15 +24,11 @@ def christoffelSymbol(metric=[["-1","0","0","0"],["0","1","0","0"],["0","0","1",
             for k in range(dim):
                 for l in range(dim):
                     chrSymbl[i][j][k] = Add(chrSymbl[i][j][k], (1/2) * invMatrix[i, l] * (diff(matrix[l, k], symbs[j]) + diff(matrix[j, l], symbs[k]) - diff(matrix[j, k], symbs[l])), evaluate=False)
-                    
-    for i in range(dim):
-        for j in range(dim):
-            for k in range(dim):
                 chrSymbl[i][j][k] = simplify(chrSymbl[i][j][k])
-                
+                                
     return chrSymbl
     
-print(christoffelSymbol( [ ["1","0","0"], ["0", "r**2", "0"], ["0", "0", "(r**2)*(sin(t))**2"] ], vars="r theta phi" ))
+print(christoffelSymbol( [ ["1","0","0"], ["0", "r**2", "0"], ["0", "0", "(r**2)*(sin(theta))**2"] ], vars="r theta phi" ))
 
 
 
